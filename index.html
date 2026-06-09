@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>felt · 가계부</title>
+  <meta name="theme-color" content="#141414" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Views ── -->
+  <div id="view-home"     class="view"></div>
+  <div id="view-stats"    class="view"></div>
+  <div id="view-list"     class="view"></div>
+  <div id="view-calendar" class="view"></div>
+  <div id="view-settings" class="view"></div>
+
+  <!-- ── Bottom Nav ── -->
+  <nav class="bottom-nav">
+    <button class="nav-btn" id="nav-home"     onclick="go('home')">
+      <span class="nav-icon">🏠</span>홈
+    </button>
+    <button class="nav-btn" id="nav-stats"    onclick="go('stats')">
+      <span class="nav-icon">📊</span>통계
+    </button>
+    <button class="nav-btn" id="nav-list"     onclick="go('list')">
+      <span class="nav-icon">📋</span>리스트
+    </button>
+    <button class="nav-btn" id="nav-calendar" onclick="go('calendar')">
+      <span class="nav-icon">📅</span>캘린더
+    </button>
+    <button class="nav-btn" id="nav-settings" onclick="go('settings')">
+      <span class="nav-icon">⚙️</span>설정
+    </button>
+  </nav>
+
+  <!-- ── FAB ── -->
+  <button class="fab" onclick="openModal()" title="거래 추가">+</button>
+
+  <!-- ── Add Modal ── -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-handle"></div>
+      <div class="modal-title">
+        거래 추가
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>
