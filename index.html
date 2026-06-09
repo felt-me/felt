@@ -54,6 +54,88 @@
     </div>
   </div>
 
+  <!-- ── Onboarding ── -->
+  <div id="onboarding" class="onb-overlay">
+    <div class="onb-inner">
+
+      <div class="onb-slide" id="onb-0">
+        <div class="onb-logo">felt<em>·</em></div>
+        <div class="onb-tagline">소비의 감각을<br>기록하다</div>
+        <div class="onb-desc">
+          felt log는 felt의 첫 번째 서비스입니다.<br>
+          지출마다 이모지로 만족도를 평가해<br>
+          진짜 체감 가치를 계산해드려요.
+        </div>
+      </div>
+
+      <div class="onb-slide" id="onb-1">
+        <div class="onb-slide-title">소비에 점수를 매겨요</div>
+        <div class="onb-emoji-list">
+          <div class="onb-emoji-row">
+            <span class="onb-em">😞</span>
+            <div class="onb-em-info"><span class="onb-em-label">별로예요</span><span class="onb-em-sub">낭비 같아요</span></div>
+            <span class="onb-em-mult">× 0.6</span>
+          </div>
+          <div class="onb-emoji-row">
+            <span class="onb-em">😐</span>
+            <div class="onb-em-info"><span class="onb-em-label">그냥요</span><span class="onb-em-sub">그저 그래요</span></div>
+            <span class="onb-em-mult">× 0.95</span>
+          </div>
+          <div class="onb-emoji-row">
+            <span class="onb-em">😊</span>
+            <div class="onb-em-info"><span class="onb-em-label">좋아요</span><span class="onb-em-sub">만족스러워요</span></div>
+            <span class="onb-em-mult">× 1.15</span>
+          </div>
+          <div class="onb-emoji-row">
+            <span class="onb-em">🤩</span>
+            <div class="onb-em-info"><span class="onb-em-label">최고예요</span><span class="onb-em-sub">완전 만족</span></div>
+            <span class="onb-em-mult green">× 1.4</span>
+          </div>
+        </div>
+        <div class="onb-example">
+          <div class="onb-example-label">예시</div>
+          <div class="onb-example-body">커피 10,000원 + 🤩 최고 = 체감 14,000원<br><span class="green">+4,000원 이득</span></div>
+        </div>
+      </div>
+
+      <div class="onb-slide" id="onb-2">
+        <div class="onb-slide-title">홈 화면에 추가하면<br>앱처럼 쓸 수 있어요</div>
+        <div class="onb-install">
+          <div class="onb-install-row">
+            <span class="onb-install-icon">🍎</span>
+            <div>
+              <div class="onb-install-os">iPhone · Safari</div>
+              <div class="onb-install-step">공유 버튼 <strong>↑</strong> → <strong>홈 화면에 추가</strong></div>
+            </div>
+          </div>
+          <div class="onb-install-row">
+            <span class="onb-install-icon">🤖</span>
+            <div>
+              <div class="onb-install-os">Android · Chrome</div>
+              <div class="onb-install-step">메뉴 <strong>⋮</strong> → <strong>홈 화면에 추가</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="onb-tip">
+          앱에 있는 데이터는 예시예요.<br>
+          <span class="onb-tip-green">설정 → 데이터 초기화</span> 후 직접 기록해보세요 😊
+        </div>
+        <button class="onb-start-btn" onclick="onbFinish()">시작하기</button>
+        <button class="onb-skip-link" onclick="onbFinish()">설치 없이 브라우저로 사용하기</button>
+      </div>
+
+    </div>
+
+    <div class="onb-footer">
+      <div class="onb-dots">
+        <div class="onb-dot active" id="onb-dot-0"></div>
+        <div class="onb-dot" id="onb-dot-1"></div>
+        <div class="onb-dot" id="onb-dot-2"></div>
+      </div>
+      <button class="onb-next-btn" id="onb-next-btn" onclick="onbNext()">다음 →</button>
+    </div>
+  </div>
+
   <script src="app.js"></script>
   <script>
     if ('serviceWorker' in navigator && location.protocol !== 'file:') {

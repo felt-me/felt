@@ -932,9 +932,40 @@ function submitTx() {
   render();
 }
 
+// ── Onboarding ───────────────────────────────────────────
+let onbStep = 0;
+
+function initOnboarding() {
+  if (localStorage.getItem('felt_onboarded')) return;
+  document.getElementById('onboarding').classList.add('visible');
+  onbShowStep(0);
+}
+
+function onbShowStep(step) {
+  onbStep = step;
+  document.querySelectorAll('.onb-slide').forEach((el, i) => {
+    el.classList.toggle('active', i === step);
+  });
+  document.querySelectorAll('.onb-dot').forEach((el, i) => {
+    el.classList.toggle('active', i === step);
+  });
+  const nextBtn = document.getElementById('onb-next-btn');
+  nextBtn.classList.toggle('hidden', step === 2);
+}
+
+function onbNext() {
+  if (onbStep < 2) onbShowStep(onbStep + 1);
+}
+
+function onbFinish() {
+  localStorage.setItem('felt_onboarded', '1');
+  document.getElementById('onboarding').classList.remove('visible');
+}
+
 // ── Init ──────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   go('home');
+  initOnboarding();
 
   document.getElementById('modal-overlay').addEventListener('click', e => {
     if (e.target.id === 'modal-overlay') closeModal();
